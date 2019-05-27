@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 User=spark
-ExecStart=/usr/bin/spark-submit --name "${app-name}" --master yarn --deploy-mode cluster "/opt/${app-name}/${app-name}.jar"
-ExecStopPost=/etc/systemd/system/bigdata-stop.sh "${app-name}"
+ExecStart=/usr/bin/spark-submit --name "\${app-name}" --master yarn --deploy-mode cluster "/opt/\${app-name}/\${app-name}.jar"
+ExecStopPost=/etc/systemd/system/bigdata-stop.sh "\${app-name}"
 Restart=always
 
 [Install]
