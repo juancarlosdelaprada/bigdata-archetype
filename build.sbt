@@ -1,4 +1,4 @@
-name := "$prueba_concepto_spark$"
+name := "$name$"
 
 version := "1.0.0"
 
