@@ -35,7 +35,7 @@ lazy val root = (project in file(".")).
   )
 
 // fat JAR
-assemblyOutputPath in assembly := file(s"target/scala-2.11/${name.value}/${name.value}.jar")
+assemblyOutputPath in assembly := file(s"target/scala-2.11/\${name.value}/\${name.value}.jar")
 mainClass in assembly := Some("sparkStreamingKafka")
 assemblyMergeStrategy in assembly := {
   case PathList("javax", "inject", xs @ _*) => MergeStrategy.last
