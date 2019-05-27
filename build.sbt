@@ -1,4 +1,4 @@
-name := "prueba_concepto_spark"
+name := "$prueba_concepto_spark$"
 
 version := "1.0.0"
 
@@ -27,6 +27,7 @@ libraryDependencies ++= Seq(
   "org.apache.velocity" % "velocity-tools" % "2.0"
 )
 
+// buildinfo
 lazy val root = (project in file(".")).
   enablePlugins(BuildInfoPlugin).
   settings(
