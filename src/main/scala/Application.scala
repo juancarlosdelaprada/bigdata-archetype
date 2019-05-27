@@ -1,7 +1,7 @@
 import build.{BuildInfo, Service}
 
 
-object test_appname {
+object Application {
   def main(args: Array[String]): Unit = {
     Service.generate()
 
