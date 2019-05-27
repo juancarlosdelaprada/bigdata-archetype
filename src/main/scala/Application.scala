@@ -1,5 +1,4 @@
-import build.{BuildInfo, Service}
-
+import build.Service
 
 object Application {
   def main(args: Array[String]): Unit = {
@@ -8,4 +7,3 @@ object Application {
     // Implement your code here
   }
 }
-
