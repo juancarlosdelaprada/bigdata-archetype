@@ -28,7 +28,7 @@ object Service {
         val template = Velocity.getTemplate("templates/servicio.vm")
 
         // 4. Obtención del resultado
-        val file = new File(s"target/scala-2.11/${BuildInfo.name}/${BuildInfo.name}.service")
+        val file = new File(s"target/scala-2.11/\${BuildInfo.name}/\${BuildInfo.name}.service")
         file.getParentFile.mkdirs
 
         val writer = new FileWriter(file)
