@@ -1,0 +1,13 @@
+[Unit]
+Description=Big Data Use Case
+After=network.target
+
+[Service]
+User=spark
+ExecStart=/usr/bin/spark-submit --name "$name$" --master yarn --deploy-mode cluster "/opt/$name$/$name$.jar"
+ExecStopPost=/etc/systemd/system/bigdata-stop.sh "$name$"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
