@@ -3,14 +3,15 @@ package build
 import java.io.{File, FileWriter}
 import java.util.Properties
 
-import org.apache.velocity.{Template, VelocityContext}
+import org.apache.velocity.VelocityContext
 import org.apache.velocity.app.Velocity
+import org.slf4j.{Logger, LoggerFactory}
 
 
 object Service {
+     def log : Logger = LoggerFactory.getLogger( Service.getClass )
 
-    @throws(classOf[ServiceException])
-    def generate() : Unit = {
+     def main(args: Array[String]): Unit = {
 
       // 1. Inicialización del motor de velocity
       val properties = new Properties
@@ -28,7 +29,7 @@ object Service {
         val template = Velocity.getTemplate("templates/servicio.vm")
 
         // 4. Obtención del resultado
-        val file = new File(s"target/scala-2.11/\${BuildInfo.name}/\${BuildInfo.name}.service")
+        val file = new File(s"build/\${BuildInfo.name}.service")
         file.getParentFile.mkdirs
 
         val writer = new FileWriter(file)
@@ -40,7 +41,7 @@ object Service {
       }
       catch {
         case e: Exception =>
-          throw new ServiceException(e.getMessage)
+          log.error(e.getMessage)
       }
   }
 }
